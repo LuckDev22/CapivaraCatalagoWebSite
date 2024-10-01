@@ -2,8 +2,7 @@ import axios from "axios";
 import { ICapivara } from "../providers/@types";
 
 // const API_URL = "http://localhost:8888/api/capivaras";
-const VERCEL_URL =
-  "http://localhost:https://capivara-catalog.vercel.app/api/capivaras";
+const VERCEL_URL = "https://capivara-catalog.vercel.app/api/capivaras";
 
 export const getCapivaras = async (): Promise<ICapivara[]> => {
   const response = await axios.get(VERCEL_URL);
