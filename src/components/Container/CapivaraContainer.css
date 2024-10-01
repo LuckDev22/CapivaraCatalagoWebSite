@@ -1,0 +1,19 @@
+.capivara-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.capivara-content {
+  flex: 1;
+  padding: 20px;
+}
+
+footer {
+  background-color: #3f3723;
+  color: #fff8e6;
+  padding: 20px;
+  text-align: center;
+  flex-shrink: 0;
+  border-top: 3px solid #7c6b4f;
+}

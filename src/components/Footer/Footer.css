@@ -1,0 +1,42 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1;
+}
+
+footer {
+  flex-shrink: 0;
+}
+
+.footer-container {
+  background-color: #3f3723;
+  color: #fff8e6;
+  padding: 20px;
+  text-align: center;
+  margin-top: 30px;
+  border-top: 3px solid #7c6b4f;
+}
+
+.footer-container p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.footer-links {
+  margin-top: 10px;
+}
+
+.footer-links a {
+  color: #fff8e6;
+  margin: 0 15px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}

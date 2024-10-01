@@ -1,0 +1,29 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+  background-color: #a6e3d7; 
+  padding: 20px;
+  color: #3f3723; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+}
+
+.header img {
+  height: 80px;
+  margin-right: 20px; 
+}
+
+.add-button {
+  background-color: #ffffff; 
+  color: #3f3723; 
+  border: 1px solid #3f3723; 
+  padding: 10px 20px; 
+  border-radius: 4px; 
+  cursor: pointer; 
+  transition: background-color 0.3s, color 0.3s; 
+}
+
+.add-button:hover {
+  background-color: #3f3723; 
+  color: #ffffff; 
+}
