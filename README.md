@@ -1,50 +1,65 @@
-# React + TypeScript + Vite
+# Capivara Catalog
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Um aplicativo web para catalogação e gerenciamento de capivaras, permitindo a adição, atualização, exclusão e visualização de informações sobre esses animais.
 
-Currently, two official plugins are available:
+## Tecnologias Utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React**: Biblioteca para construção da interface do usuário.
+- **TypeScript**: Linguagem que adiciona tipagem ao JavaScript.
+- **Axios**: Biblioteca para fazer requisições HTTP.
+- **React Toastify**: Para notificações de feedback do usuário.
+- **CSS**: Para estilização da aplicação.
 
-## Expanding the ESLint configuration
+## Funcionalidades
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Visualizar uma lista de capivaras com detalhes como nome, idade, peso, habitat, comportamento e estado de saúde.
+- Adicionar novas capivaras ao catálogo.
+- Editar as informações de capivaras existentes.
+- Deletar capivaras do catálogo.
+- Notificações de sucesso e erro ao realizar ações (usando React Toastify).
 
-- Configure the top-level `parserOptions` property like this:
+## Estrutura do Projeto
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+```plaintext
+├── src
+│   ├── components
+│   │   ├── CapivaraCard.tsx        # Componente para exibir informações de uma capivara
+│   │   ├── CapivaraContainer.tsx   # Componente principal para gerenciar capivaras
+│   ├── providers
+│   │   ├── @types.ts               # Tipos TypeScript utilizados na aplicação
+│   ├── api
+│   │   ├── capivaraApi.ts          # Funções para comunicação com a API
+│   ├── App.tsx                     # Componente principal da aplicação
+│   ├── index.tsx                   # Ponto de entrada da aplicação
+│   └── ...                         # Outros arquivos e pastas
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+Instalação
+Siga os passos abaixo para configurar e executar o projeto:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+Clone o repositório:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+git clone https://github.com/LuckDev22/CapivaraCatalagoWebSite.git
+cd capivara-catalog
+Instale as dependências:
+
+npm install
+# ou
+yarn install
+
+Inicie o servidor de desenvolvimento:
+
+npm rum dev
+
+
+O aplicativo estará disponível em http://localhost:5173.
+
+Uso
+Adicionar Capivara: Clique no botão "Adicionar" e preencha os detalhes da capivara.
+Editar Capivara: Clique no botão "Editar" ao lado da capivara desejada para modificar suas informações.
+Deletar Capivara: Clique no botão "Deletar" para remover uma capivara do catálogo.
+Notificações: Feedback visual aparecerá ao adicionar, editar ou deletar capivaras.
+
+Contribuição
+
+Contribuições são bem-vindas! Sinta-se à vontade para abrir uma issue ou enviar um pull request.
+
