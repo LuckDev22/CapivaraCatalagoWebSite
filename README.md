@@ -18,20 +18,6 @@ Um aplicativo web para catalogação e gerenciamento de capivaras, permitindo a 
 - Deletar capivaras do catálogo.
 - Notificações de sucesso e erro ao realizar ações (usando React Toastify).
 
-## Estrutura do Projeto
-
-```plaintext
-├── src
-│   ├── components
-│   │   ├── CapivaraCard.tsx        # Componente para exibir informações de uma capivara
-│   │   ├── CapivaraContainer.tsx   # Componente principal para gerenciar capivaras
-│   ├── providers
-│   │   ├── @types.ts               # Tipos TypeScript utilizados na aplicação
-│   ├── api
-│   │   ├── capivaraApi.ts          # Funções para comunicação com a API
-│   ├── App.tsx                     # Componente principal da aplicação
-│   ├── index.tsx                   # Ponto de entrada da aplicação
-│   └── ...                         # Outros arquivos e pastas
 
 Instalação
 Siga os passos abaixo para configurar e executar o projeto:
@@ -43,8 +29,6 @@ cd capivara-catalog
 Instale as dependências:
 
 npm install
-# ou
-yarn install
 
 Inicie o servidor de desenvolvimento:
 
