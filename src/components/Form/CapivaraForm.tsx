@@ -7,6 +7,7 @@ interface CapivaraFormProps {
   capivara: ICapivara | null;
   setCapivara: React.Dispatch<React.SetStateAction<ICapivara | null>>;
   fetchCapivaras: () => Promise<void>;
+  onClose: () => void;
 }
 
 const CapivaraForm: React.FC<CapivaraFormProps> = ({
@@ -14,6 +15,7 @@ const CapivaraForm: React.FC<CapivaraFormProps> = ({
   capivara,
   setCapivara,
   fetchCapivaras,
+  onClose,
 }) => {
   const { register, handleSubmit, reset } = useForm<Omit<ICapivara, "id">>({
     defaultValues: capivara ? { ...capivara } : {},
@@ -23,7 +25,8 @@ const CapivaraForm: React.FC<CapivaraFormProps> = ({
     await onSubmit(data);
     reset();
     setCapivara(null);
-    fetchCapivaras();
+    await fetchCapivaras();
+    onClose();
   };
 
   return (
@@ -67,8 +70,8 @@ const CapivaraForm: React.FC<CapivaraFormProps> = ({
           {...register("comportamento", { required: true })}
           placeholder="Comportamento"
         />
-        <input {...register("dieta")} placeholder="Dieta" />{" "}
-        <textarea {...register("observacoes")} placeholder="Observações" />{" "}
+        <input {...register("dieta")} placeholder="Dieta" />
+        <textarea {...register("observacoes")} placeholder="Observações" />
         <button type="submit">
           {capivara ? "Atualizar Capivara" : "Adicionar Capivara"}
         </button>

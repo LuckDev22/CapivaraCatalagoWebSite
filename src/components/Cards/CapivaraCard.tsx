@@ -20,7 +20,6 @@ const CapivaraCard: React.FC<CapivaraCardProps> = ({
       <p>Status de Saúde: {capivara.statusSaude}</p>
       <p>Habitat: {capivara.habitat}</p>
       <p>Comportamento: {capivara.comportamento}</p>
-      <p>Comportamento: {capivara.comportamento}</p>
       {capivara.dieta && <p>Dieta: {capivara.dieta}</p>}
       {capivara.observacoes && <p>Observações: {capivara.observacoes}</p>}
       <div className="button-container">

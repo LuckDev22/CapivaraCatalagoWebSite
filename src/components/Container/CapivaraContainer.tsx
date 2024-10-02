@@ -72,6 +72,7 @@ const CapivaraContainer: React.FC = () => {
           setCapivara={setEditingCapivara}
           fetchCapivaras={loadCapivaras}
           onSubmit={handleSubmit}
+          onClose={() => setIsModalOpen(false)}
         />
       </Modal>
       <Footer />
