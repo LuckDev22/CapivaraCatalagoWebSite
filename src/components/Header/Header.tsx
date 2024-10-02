@@ -9,7 +9,7 @@ const Header: React.FC<HeaderProps> = ({ onAdd }) => {
   return (
     <header className="header">
       <img src={logo} alt="Logo do Catálogo de Capivaras" className="logo" />
-      <h1>Catálogo de Capivaras</h1>
+      <h1>CapiVÁRIAS</h1>
       <button onClick={onAdd} className="add-button">
         Adicionar Capivara
       </button>
