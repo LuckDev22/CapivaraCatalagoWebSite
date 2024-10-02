@@ -4,7 +4,7 @@ import { ICapivara } from "../providers/@types";
 const API_URL = "https://capivara-catalog.vercel.app/api/capivaras";
 // const API_URL_LOCAL = "http://localhost:8888/api/capivaras";
 
-export const getCapivaras = async (): Promise<ICapivara[]> => {
+export const fetchCapivaras = async (): Promise<ICapivara[]> => {
   const response = await axios.get(API_URL);
   return response.data.map((item: any) => ({
     _id: item._id,
@@ -24,7 +24,7 @@ export const createCapivara = async (capivara: {
   idade: number;
   peso: number;
   habitat: string;
-}) => {
+}): Promise<ICapivara> => {
   const response = await axios.post(API_URL, capivara);
   return response.data;
 };
@@ -32,12 +32,11 @@ export const createCapivara = async (capivara: {
 export const updateCapivara = async (
   id: string,
   capivara: { nome: string; idade: number; peso: number; habitat: string }
-) => {
+): Promise<ICapivara> => {
   const response = await axios.put(`${API_URL}/${id}`, capivara);
   return response.data;
 };
 
-export const deleteCapivara = async (id: string) => {
-  const response = await axios.delete(`${API_URL}/${id}`);
-  return response.data;
+export const deleteCapivara = async (id: string): Promise<void> => {
+  await axios.delete(`${API_URL}/${id}`);
 };

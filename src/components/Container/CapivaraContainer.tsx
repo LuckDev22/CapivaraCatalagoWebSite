@@ -1,11 +1,17 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import CapivaraList from "../List/CapivaraList";
 import CapivaraForm from "../Form/CapivaraForm";
 import Modal from "../Modal/Modal";
 import Header from "../Header/Header";
-import { ICapivara } from "../../providers/@types";
-import "./CapivaraContainer.css";
 import Footer from "../Footer/Footer";
+import { ICapivara } from "../../providers/@types";
+import {
+  fetchCapivaras,
+  createCapivara,
+  updateCapivara,
+  deleteCapivara,
+} from "../../services/api";
+import "./CapivaraContainer.css";
 
 const CapivaraContainer: React.FC = () => {
   const [capivaras, setCapivaras] = useState<ICapivara[]>([]);
@@ -14,17 +20,14 @@ const CapivaraContainer: React.FC = () => {
   );
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const fetchCapivaras = async () => {
-    const response = await fetch("http://localhost:8888/api/capivaras");
-    const data = await response.json();
+  const loadCapivaras = async () => {
+    const data = await fetchCapivaras();
     setCapivaras(data);
   };
 
   const handleDelete = async (id: string) => {
-    await fetch(`http://localhost:8888/api/capivaras/${id}`, {
-      method: "DELETE",
-    });
-    fetchCapivaras();
+    await deleteCapivara(id);
+    loadCapivaras();
   };
 
   const startEditing = (capivara: ICapivara) => {
@@ -32,35 +35,19 @@ const CapivaraContainer: React.FC = () => {
     setIsModalOpen(true);
   };
 
-  const handleSubmit = async (data: Omit<ICapivara, "id">) => {
+  const handleSubmit = async (data: Omit<ICapivara, "_id">) => {
     if (editingCapivara) {
-      await fetch(
-        `http://localhost:8888/api/capivaras/${editingCapivara._id}`,
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        }
-      );
+      await updateCapivara(editingCapivara._id, data);
     } else {
-      // Adição
-      await fetch("http://localhost:8888/api/capivaras", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
+      await createCapivara(data);
     }
-    fetchCapivaras();
+    loadCapivaras();
     setEditingCapivara(null);
     setIsModalOpen(false);
   };
 
   useEffect(() => {
-    fetchCapivaras();
+    loadCapivaras();
   }, []);
 
   return (
@@ -83,7 +70,7 @@ const CapivaraContainer: React.FC = () => {
         <CapivaraForm
           capivara={editingCapivara}
           setCapivara={setEditingCapivara}
-          fetchCapivaras={fetchCapivaras}
+          fetchCapivaras={loadCapivaras}
           onSubmit={handleSubmit}
         />
       </Modal>
