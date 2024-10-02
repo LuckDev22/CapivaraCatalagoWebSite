@@ -63,13 +63,12 @@ const CapivaraForm: React.FC<CapivaraFormProps> = ({
             </option>
           ))}
         </select>
-
         <input
           {...register("comportamento", { required: true })}
           placeholder="Comportamento"
         />
-        <input {...register("dieta", { required: true })} placeholder="Dieta" />
-        <textarea {...register("observacoes")} placeholder="Observações" />
+        <input {...register("dieta")} placeholder="Dieta" />{" "}
+        <textarea {...register("observacoes")} placeholder="Observações" />{" "}
         <button type="submit">
           {capivara ? "Atualizar Capivara" : "Adicionar Capivara"}
         </button>

@@ -6,6 +6,6 @@ export interface ICapivara {
   statusSaude: string;
   habitat: string;
   comportamento: string;
-  dieta: string;
+  dieta?: string;
   observacoes?: string;
 }
